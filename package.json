@@ -1,0 +1,27 @@
+{
+  "name": "catalogo-de-filmes",
+  "version": "1.0.0",
+  "description": "Uma aplicação para consultar tudo sobre filmes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-js && npm run build-css && npm run build-html",
+    "build-js": "browserify src/app.js -t babelify -o build/js/script.js",
+    "build-css": "stylus src/stylus/style.styl -c -o build/css/style.css",
+    "build-html": "cp src/views/*.html build/",
+    "w-js": "watchify src/js/app.js -t babelify -o build/js/script.js",
+    "w-css": "stylus -w src/stylus/style.styl -o build/css/style.css",
+    "preinstall": "npm install -g stylus && npm install -g browserify && npm install -g http-server"
+  },
+  "author": "Alex Miranda",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-traverse": "^6.26.0",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "watchify": "^3.9.0"
+  }
+}
