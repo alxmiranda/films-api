@@ -15,7 +15,7 @@ export default class Renders {
   }
 
   events() {
-  //  
+  // utilizar a interação do usuario para fazer a aplicação reagir. 
   }
   
   init() {
