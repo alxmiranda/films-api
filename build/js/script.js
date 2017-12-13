@@ -45,11 +45,11 @@ var Renders = function () {
     value: function categories() {
       this.setQuery("genre", "/categorias", "categories");
     }
-
-    // events() {
-    //   this.categories()
-    // }
-
+  }, {
+    key: "events",
+    value: function events() {
+      var filmDetail = document.querySelector("");
+    }
   }, {
     key: "init",
     value: function init() {
@@ -147,19 +147,8 @@ var Query = function () {
 
 exports.default = Query;
 
-},{"./model-data-api":3,"./model-views":6}],5:[function(require,module,exports){
+},{"./model-data-api":3,"./model-views":5}],5:[function(require,module,exports){
 "use strict";
-
-var templates = [{
-  name: "list",
-  body: "\n    <dl class=\"list-films\">\n    <dd class=\"list-films__film\">\n      <figure class=\"list-films__poster\">\n        <img src=\"\" alt=\"\">\n      </figure>\n\n      <article class=\"list-films__infos\">\n        <header>\n          <div class=\"expand\">\n            <h2 class=\"list-films__title\">Nome do filme</h2>\n            <span class=\"list-films__note\">7.1</span>\n          </div>\n          <div class=\"expand\">\n            <span class=\"list-films__year\">2007</span>\n            <ul class=\"list-films__categories\">\n              <li>A\xE7\xE3o</li>\n              <li>Aventura</li>\n              <li>Fic\xE7\xE3o</li>\n            </ul>\n          </div>\n        </header>\n        <p>\n          Stephen Strange (Benedict Cumberbatch) leva uma vida bem sucedida como neurocirurgi\xE3o. Sua vida muda completamente quando sofre um acidente de carro e fica com as\u2026\n        </p>\n        <footer>\n          <a href=\"#\">Mais informa\xE7\xF5es</a>\n        </footer>\n      </article>\n    </dd>\n  </dl>\n    "
-}, {
-  name: "film",
-  body: "\n      <h1></h1>\n    "
-}];
-
-},{}],6:[function(require,module,exports){
-'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -167,11 +156,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _modelTemplatesViews = require('./model-templates-views');
-
-var _modelTemplatesViews2 = _interopRequireDefault(_modelTemplatesViews);
-
-var _modelDataApi = require('./model-data-api');
+var _modelDataApi = require("./model-data-api");
 
 var _modelDataApi2 = _interopRequireDefault(_modelDataApi);
 
@@ -187,7 +172,7 @@ var Views = function () {
   }
 
   _createClass(Views, [{
-    key: 'fillTemplate',
+    key: "fillTemplate",
     value: function fillTemplate(arg) {
       var films = arg.response.results;
 
@@ -195,9 +180,9 @@ var Views = function () {
         var html = "";
         console.log(films);
         films.forEach(function (element) {
-          html += '\n        <dd class="list-films__film">\n        <figure class="list-films__poster">\n          <img src="' + _modelDataApi2.default.pathStatic + element.poster_path + '" alt="' + element.title + '">\n        </figure>\n\n        <article class="list-films__infos">\n          <header>\n            <div class="expand">\n              <h2 class="list-films__title">Nome do filme</h2>\n              <span class="list-films__note">' + element.vote_average + '</span>\n            </div>\n            <div class="expand">\n              <span class="list-films__year">2007</span>\n              <ul class="list-films__categories">\n                <li>A\xE7\xE3o</li>\n                <li>Aventura</li>\n                <li>Fic\xE7\xE3o</li>\n              </ul>\n            </div>\n          </header>\n          <p>\n            ' + element.overview + '\n          </p>\n          <footer>\n            <a href="' + _modelDataApi2.default.pathApi + element.id + '?api_key=' + _modelDataApi2.default.key + '&language=pt-BR}" title="' + element.title + '">Mais informa\xE7\xF5es</a>\n          </footer>\n        </article>\n      </dd>\n        ';
+          html += "\n        <dd class=\"list-films__film\">\n        <figure class=\"list-films__poster\">\n          <img src=\"" + _modelDataApi2.default.pathStatic + element.poster_path + "\" alt=\"" + element.title + "\">\n        </figure>\n\n        <article class=\"list-films__infos\">\n          <header>\n            <div class=\"expand\">\n              <h2 class=\"list-films__title\">Nome do filme</h2>\n              <span class=\"list-films__note\">" + element.vote_average + "</span>\n            </div>\n            <div class=\"expand\">\n              <span class=\"list-films__year\">2007</span>\n              <ul class=\"list-films__categories\">\n                <li>A\xE7\xE3o</li>\n                <li>Aventura</li>\n                <li>Fic\xE7\xE3o</li>\n              </ul>\n            </div>\n          </header>\n          <p>\n            " + element.overview + "\n          </p>\n          <footer>\n            <button data-url=\"" + _modelDataApi2.default.pathApi + element.id + "?api_key=" + _modelDataApi2.default.key + "&language=pt-BR}\">Mais informa\xE7\xF5es</button>\n          </footer>\n        </article>\n      </dd>\n        ";
         });
-        this.context.innerHTML = '<dl class="list-films">' + html + '</dl>';
+        this.context.innerHTML = "<dl class=\"list-films\">" + html + "</dl>";
       }
     }
   }]);
@@ -207,4 +192,4 @@ var Views = function () {
 
 exports.default = Views;
 
-},{"./model-data-api":3,"./model-templates-views":5}]},{},[1]);
+},{"./model-data-api":3}]},{},[1]);

@@ -14,9 +14,9 @@ export default class Renders {
     this.setQuery("genre", "/categorias", "categories");
   }
 
-  // events() {
-  //   this.categories()
-  // }
+  events() {
+  //  
+  }
   
   init() {
     this.index();

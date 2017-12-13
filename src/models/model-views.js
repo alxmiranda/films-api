@@ -1,4 +1,3 @@
-import Templates from './model-templates-views';
 import api from './model-data-api';
 
 export default class Views {
@@ -39,7 +38,7 @@ export default class Views {
             ${element.overview}
           </p>
           <footer>
-            <a href="${api.pathApi}${element.id}?api_key=${api.key}&language=pt-BR" title="${element.title}">Mais informações</a>
+            <button data-url="${api.pathApi}${element.id}?api_key=${api.key}&language=pt-BR}">Mais informações</button>
           </footer>
         </article>
       </dd>

@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./build/",
     "build": "npm run build-js && npm run build-css && npm run build-html",
     "build-js": "browserify src/app.js -t babelify -o build/js/script.js",
     "build-css": "stylus src/stylus/style.styl -c -o build/css/style.css",
     "build-html": "cp src/views/*.html build/",
-    "w-js": "watchify src/js/app.js -t babelify -o build/js/script.js",
+    "w-js": "watchify src/controllers/index.js -t babelify -o build/js/script.js",
     "w-css": "stylus -w src/stylus/style.styl -o build/css/style.css",
     "preinstall": "npm install -g stylus && npm install -g browserify && npm install -g http-server"
   },

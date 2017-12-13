@@ -1,0 +1,67 @@
+.list-films
+  width: 100%
+  max-width: $container
+  padding: 0 $padding
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.list-films__film
+  width: 100%
+  max-width: 620px
+  margin-bottom: ($margin * 2)
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  background: $light
+  overflow: hidden
+
+.list-films__poster
+  width: 185px
+  margin-top: ($margin + 5)
+
+.list-films__title
+  font-family: $font-family
+  color: $dark
+  text-align: center
+  line-height: $line-height
+
+.list-films__infos
+  padding: $margin ($margin + 5)
+
+  p
+    margin: ($margin * 2) 0 $margin
+
+  footer
+    padding: ($padding + 5) 0
+
+.list-films__year
+  margin-top: ($margin / 2)
+
+.list-films__categories
+  display: none
+
+
+@media screen and (min-width 992px)
+  .list-films
+    flex-flow: row wrap
+    justify-content: space-around
+
+  .list-films__film
+    height: 278px
+    max-width: (($container / 2) - 50)
+    overflow: hidden
+    flex-flow: row nowrap
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1)
+
+  .list-films__infos
+    padding: 15px
+    p
+      height: 120px
+      word-wrap: break-word;
+      white-space: pre-line;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+  .list-films__poster
+    margin: 0
